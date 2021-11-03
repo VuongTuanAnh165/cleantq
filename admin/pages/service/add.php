@@ -109,8 +109,8 @@ require_once(__DIR__ . '/../../layout/header.php');
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Hình ảnh</label>
                             <div class="col-sm-8">
-                                <input type="file" class='form-control-file' id="exampleFormControlFile1" name='service_image' onchange="preview_thumbail1(this);">
-                                <img id="anh1" src="#" alt="your image">
+                                <input type="file" class='form-control-file' id="exampleFormControlFile1" name='service_image' onchange="preview_thumbail(this);">
+                                <img id="anh" src="#" alt="your image">
                             </div>
                         </div>
 

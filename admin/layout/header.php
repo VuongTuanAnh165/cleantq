@@ -80,7 +80,7 @@ $company = $db->fetchcheck($sql);
             <!-- Brand Logo -->
             <a href="<?php echo base_url_be(); ?>index.php" class="brand-link">
                 <img src="<?php echo base_img('company').$company['company_logo'] ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">MULTIPLE MANAGER</span>
+                <span class="brand-text font-weight-light">SERVICES</span>
             </a>
 
             <!-- Sidebar -->
