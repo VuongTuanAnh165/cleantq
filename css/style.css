@@ -1,39 +1,3 @@
-/***************************************************************************************************************
-||||||||||||||||||||||||||       MASTER STYLESHEET FOR Hanover        |||||||||||||||||||||||||||||||||||||||
-****************************************************************************************************************
-||||||||||||||||||||||||||                TABLE OF CONTENT               |||||||||||||||||||||||||||||||||||||||
-****************************************************************************************************************
-****************************************************************************************************************
-
-01. Imported styles
-02. Flaticon reset styles
-03. Header styles
-04. Mainmenu styles
-05. Rev_slider_wrapper styles
-66. Call to action area Style
-07. Categories area style
-08. Fact counter area style
-09. Latest Blog area style
-10. Latest blog area style 
-11. Testimonial area style
-12. Brand area style
-13. Single service style
-14. Pricing table area style
-15. About page style
-16. Account page style
-17. 404 page style style
-18. Blog page style
-19. Blog single style
-20. Team page style
-21. Shop page style style
-22. Shop with sidebar Style
-23. Shop single Style
-24. Cart page style style
-25. Contact page style
-
-****************************************************************************************************************
-||||||||||||||||||||||||||||            End TABLE OF CONTENT                ||||||||||||||||||||||||||||||||||||
-****************************************************************************************************************/
 
 
 
@@ -41,6 +5,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 
 
@@ -91,7 +57,7 @@
 html,
 body { height: 100% }
 body {
-  font-family: 'Rubik', sans-serif;
+font-family: 'Roboto', sans-serif;
   font-size: 15px;
   color: #777777;
   line-height: 26px;
@@ -101,7 +67,7 @@ button:focus{
   outline: none;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
   margin: 0;
 }
 h3 {
@@ -143,7 +109,7 @@ button{
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     position: relative;
     transition: all 0.5s ease 0s;
     cursor: pointer;
@@ -168,8 +134,8 @@ button{
     border-radius: 4px;
 }
 .bg-clr1{
-    background: #ffd526;  
-    color: #333333;
+    background: #ec761e;  
+    color: #fff;
 }
 .thm-btn:hover::before{
     opacity: 1;
@@ -210,7 +176,7 @@ button{
     position: relative;
 }
 .sec-title h1 {
-  color: #333333;
+  color: #ec7614;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
@@ -301,7 +267,7 @@ button{
     margin: 0;
     width: 100%;
     z-index: 10000;
-    background: #ffd526;
+    background: #fff;
     z-index: 99999;
     -webkit-animation-name: menu_sticky;
           animation-name: menu_sticky;
@@ -359,8 +325,8 @@ button{
 
 /* Scroll To Top styles */
 .scroll-to-top {
-    background: #ffd526;
-    border: 2px solid #ffd526;
+    background: #eb7616;
+
     border-radius: 20px 20px 0 0;
     bottom: 25px;
     color: #fff;
@@ -381,7 +347,7 @@ button{
     box-shadow: 0px 8px 23px -6px rgba(27,27,27,1);
 }
 .scroll-to-top:hover {
-  background: #333;
+  background: #0065bd;
 }
 
 
@@ -410,7 +376,7 @@ select:focus {
     padding: 16px 0;
     transition: all 500ms ease 0s;
     width: 55px;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .post-pagination li.active a, .post-pagination li:hover a {
     background: #ffd526;
@@ -524,8 +490,8 @@ select:focus {
     left: 0;
 }
 .header-style-one-area .info ul li .iocn-holder span:before {
-    font-size: 35px;
-    color: #ffd526;
+    font-size: 30px;
+    color: #ec761e;
     display: inline-block;
     padding: 10px 0;
     transition: all 500ms ease;
@@ -548,6 +514,7 @@ select:focus {
     font-size: 14px;
     margin: 0;
     line-height: 14px;
+    font-weight: bold;
 }
 
 /*==============================================
@@ -560,7 +527,7 @@ select:focus {
     margin-bottom: -60px;
 }
 .mainmenu-area .mainmenu-bg {
-    background: #ffd526;
+    background: #ec761e;
     transition: all 0.5s ease 0s;
     width: 1140px;
     float: right;
@@ -586,7 +553,7 @@ select:focus {
     float: left;
     margin: 0;
     position: relative;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .main-menu .navigation li {
     float: left;
@@ -594,16 +561,17 @@ select:focus {
     position: relative;
 }
 .main-menu .navigation li a {
-    color: #333333;
+    color: #eb7616;
     display: block;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: bold;
     line-height: 30px;
     opacity: 1;
     padding: 16px 25px 14px;
     position: relative;
     text-transform: uppercase;
     transition: all 500ms ease 0s;
+    
 }
 .main-menu .navigation > li.dropdown > a {
   padding-right: 35px;
@@ -657,7 +625,7 @@ select:focus {
   border: none;
 }
 .main-menu .navigation > li > ul > li > a {
-  background: #0065bd none repeat scroll 0 0;
+  background: #eb7616 none repeat scroll 0 0;
   color: #ffffff;
   display: block;
   font-size: 13px;
@@ -669,8 +637,8 @@ select:focus {
   transition: all 500ms ease 0s;
 }
 .main-menu .navigation > li > ul > li:hover > a {
-  color: #ffd526;
-  background-color: #333333;
+  color: #ffffff;
+  background-color: #2674b2;
 }
 
 .main-menu .navigation > li > ul > li.dropdown > a:after{}
@@ -711,7 +679,7 @@ select:focus {
     display: block;
 }
 .mainmenu-right-info:before{
-  background: #ffd526 none repeat scroll 0 0;
+  background: #ec761e none repeat scroll 0 0;
   content: "";
   height: 100%;
   position: absolute;
@@ -754,7 +722,7 @@ select:focus {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     text-align: center;
     border-radius: 4px;
     line-height: 40px;
@@ -982,7 +950,7 @@ select:focus {
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     margin: 10px 0 0;
 }
 
@@ -1253,7 +1221,7 @@ select:focus {
     font-size: 95px;
     line-height: 95px;
     font-weight: 600;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     position: relative;
     transition: all 500ms ease;
 }
@@ -1614,7 +1582,7 @@ select:focus {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     transition: all 500ms ease;  
 }
 .single-blog-post .text-holder .text .readmore i{
@@ -1769,8 +1737,8 @@ select:focus {
 =============================================
 ***/
 .footer-area {
-    background: #2c2c2c;
-    padding-top: 100px;
+    background: #ffffff;
+    padding-top: 80px;
     padding-bottom: 80px;
 }
 
@@ -1779,7 +1747,7 @@ select:focus {
     margin-top: -2px;
 }
 .single-footer-widget .title h3 {
-    color: #ffffff;
+    color: #000000;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1790,9 +1758,10 @@ select:focus {
     margin-top: -7px;
 }
 .single-footer-widget .footer-contact-info p{
-    color: #bbbbbb;  
-    font-size: 14px;
+    color: #eb7616;  
+    font-size: 16px;
     line-height: 28px;
+
 }
 .single-footer-widget .footer-contact-info ul {
     overflow: hidden;
@@ -1819,7 +1788,7 @@ select:focus {
     
 }
 .single-footer-widget .footer-contact-info ul li .text-holder p{
-    color: #bbbbbb;
+    color: #eb7616;
     font-size: 14px;
     margin: 0;
 }
@@ -1923,19 +1892,20 @@ select:focus {
     margin-bottom: 0;
 }
 .single-footer-widget .quick-links li i{
-    color: #ffd526;
+    color: #eb7616;
     font-size: 13px;
     display: inline-block;
     padding-right: 7px;
 }
 .single-footer-widget .quick-links li a{
-    color: #bbbbbb;
+    color: #eb7616;
     font-size: 14px;
     font-weight: 300;
     transition: all 500ms ease;
+    text-decoration: none;
 }
 .single-footer-widget .quick-links li a:hover{
-    color: #ffd526;
+    color: #eb7616;
 }
 
 .single-footer-widget .latest-tweet{
@@ -1963,7 +1933,7 @@ select:focus {
     
 }
 .single-footer-widget .latest-tweet li .text-holder p{
-    color: #ffd526;
+    color: #eb7616;
     font-size: 14px;
     font-weight: 300;
     margin: 0;
@@ -1974,7 +1944,7 @@ select:focus {
     transition: all 500ms ease;
 }
 .single-footer-widget .latest-tweet li .text-holder p a:hover{
-    color: #ffd526;    
+    color: #eb7616;    
 }
 
 .single-footer-widget.pdleft {
@@ -2069,15 +2039,16 @@ select:focus {
 }
 .copyright-area .copyright-text p{
     margin: 0;
-    color: #bbbbbb;
+    color: white;
     font-size: 14px;
 }
 .copyright-area .copyright-text p a{
-    color: #ffd526; 
+    color: #eb7616; 
     transition: all 500ms ease;
+    text-decoration: none;
 }
 .copyright-area .copyright-text p a:hover{
-    color: #bbbbbb;
+    color: #eb7616;
 }
 
 
@@ -2088,7 +2059,7 @@ select:focus {
 =============================================
 ***/
 .top-bar-area {
-    background: #0065bd;
+    background: #2674b2;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -2097,7 +2068,7 @@ select:focus {
     
 }
 .top-bar-area .top-left ul{
-    font-family: 'Rubik', sans-serif; 
+  font-family: 'Roboto', sans-serif; 
 }
 .top-bar-area .top-left ul .info-list{
     color: #ffffff;
@@ -2121,9 +2092,10 @@ select:focus {
 .top-bar-area .top-left ul .info-list i {
     display: inline-block;
     float: left;
-    color: #ffd526;
+    color: #eb7616;
     font-size: 13px;
     padding-right: 10px;
+    font-weight: bold;
 }
 
 .top-bar-area .top-left ul .info-list .world-icon {
@@ -2148,7 +2120,7 @@ select:focus {
 }
 .mainmenu-area.style-two {
 
-    border-bottom: 3px solid #e2c035;
+    /* border-bottom: 3px solid #e2c035; */
     border-top: none;
 }
 .mainmenu-area.style-two .main-menu {
@@ -2271,8 +2243,8 @@ select:focus {
 =============================================
 ***/
 .service-v2-area {
-    padding-top: 150px;
-    padding-bottom: 120px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 .service-v2-area .service-v2-img-box {
     text-align: center;
@@ -2347,7 +2319,7 @@ select:focus {
     z-index: 1;
 }
 .express-quote-area::before {
-    background: rgba(0, 101, 189, 0.90) none repeat scroll 0 0;
+    background: rgb(173 173 173 / 90%) none repeat scroll 0 0;
     content: "";
     height: 100%;
     left: 0;
@@ -2355,6 +2327,7 @@ select:focus {
     top: 0;
     width: 100%;
     z-index: -1;
+    opacity: 0.4;
 }
 
 .express-quote-area .text-holder {
@@ -2377,17 +2350,17 @@ select:focus {
     border-radius: 3px;
     border: 1px solid transparent;
     margin-bottom: 20px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 13px;
     display: block;
     padding: 0 15px;
     transition: all 500ms ease;
 }
 .express-quote-area #quote-form input[type="text"]:focus{
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 .express-quote-area #quote-form input[type="email"]:focus{
-    color: #333;    
+    color: rgb(0, 0, 0);    
 }
 .express-quote-area #quote-form button {
     width: 100%;
@@ -2403,8 +2376,8 @@ select:focus {
 =============================================
 ***/
 .what-we-do-area {
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 .what-we-do-area .wedo-carousel{
     position: relative;
@@ -2757,8 +2730,8 @@ select:focus {
 =============================================
 ***/
 .latest-blog-v2-area {
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 .single-blog-post.blog-list {
     position: relative;
@@ -3035,7 +3008,7 @@ select:focus {
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     transition: all 500ms ease;
 }
 .footer-v2-area .footer-bottom-v2 .footer-menu ul li a:hover{
@@ -3544,7 +3517,7 @@ select:focus {
     color: #ffd526;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -3647,7 +3620,7 @@ select:focus {
     font-weight: 500;
     text-transform: uppercase;
     margin: 0 0 26px;
-    font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .single-product-item .title-holder .cart-btn {
@@ -3678,7 +3651,7 @@ select:focus {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     line-height: 45px;
     transition: all 500ms ease;
 }
@@ -3858,7 +3831,7 @@ select:focus {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     line-height: 20px;
 }
 .breadcrumb-botton ul li .dotted {
@@ -3910,7 +3883,7 @@ select:focus {
     font-weight: 700;
     padding: 17px 30px 11px;
     width: 100%;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     position: relative;
     z-index: 1;
     transition: all 500ms ease;
@@ -4285,7 +4258,7 @@ select:focus {
     transition: all 500ms ease;
     font-weight: 300;
     font-size: 13px;
-    font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto', sans-serif;
     font-style: italic;
 }
 
@@ -4350,7 +4323,7 @@ select:focus {
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .blog-single-area .middle-text-box .text {
     margin: 10px 0 0;
@@ -4443,7 +4416,7 @@ select:focus {
     color: #333333;
     font-size: 16px;
     font-weight: 700;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     display: inline-block;
     padding-right: 10px;
@@ -4459,7 +4432,7 @@ select:focus {
     text-transform: uppercase;
     position: relative;
     top: 7px;
-    font-family: 'Khula', sans-serif;    
+  font-family: 'Roboto', sans-serif;    
 }
 .blog-single-area .tag-social-share-box .social-share i {
     color: #448dcd;
@@ -4552,7 +4525,7 @@ select:focus {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .blog-single-area .comment-box .single-comment-box .text-holder .top .posted-time {
     position: relative;
@@ -4833,7 +4806,7 @@ select:focus {
     display: inline-block;
     border-radius: 3px;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     transition: all 500ms ease;
 }
 .contact-form-area .form-right-box .contact-us-button a:hover{
@@ -4862,7 +4835,7 @@ select:focus {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
     margin: 8px 0 0;
 }
 .shop-area .showing-result-shorting .shorting{
@@ -4900,7 +4873,7 @@ select:focus {
   color: #0065bd;
   font-size: 18px;
   font-weight: 600;
-  font-family: 'Rubik', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .single-shop-content .content-box .text {
     overflow: hidden;
@@ -5117,7 +5090,7 @@ select:focus {
   font-size: 16px;
   font-weight: 400;
   margin: 0 0 10px;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
   text-transform: none;
 }
 .product-tab-box .tab-content .review-form .add-rating-box ul li {
@@ -5220,7 +5193,7 @@ select:focus {
 .cart-area .cart-table .cart-header {
   background: #f7f7f7;
   color: #333;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
   font-size: 16px;
   position: relative;
   text-transform: capitalize;
@@ -5246,7 +5219,7 @@ select:focus {
 }
 .cart-area .cart-table tbody tr td {
   color: #333;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -5319,7 +5292,7 @@ select:focus {
   line-height: 20px;
   padding-left: 50px;
   position: relative;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .cart-area .cart-table tbody .available-info .icon {
   background: #ffd526 none repeat scroll 0 0;
@@ -5339,20 +5312,20 @@ select:focus {
   color: #777;
   font-size: 18px;
   font-weight: 400;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .cart-area .cart-table tbody tr .sub-total {
   color: #ffd526;
   font-weight: 400;
   font-size: 18px;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .cart-area .cart-table tbody tr td .remove{ }
 .cart-area .cart-table tbody tr td .remove .checkbox label {
   color: #777;
   font-size: 16px;
   font-weight: 400;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .cart-area .cart-table tbody tr td .remove .checkbox label input[type="checkbox"] {
   display: inline-block;
@@ -5505,7 +5478,7 @@ select:focus {
     padding: 10px 18px;
     position: relative;
     width: 50%;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .cart-total-table li span.col {
     color: #777;
@@ -5517,7 +5490,7 @@ select:focus {
     padding: 10px 18px;
     position: relative;
     width: 50%;
-    font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .cart-total-table li span.col b {
   color: #ffd526;
@@ -5605,7 +5578,7 @@ select:focus {
     font-weight: 400;
     margin: -3px 0 3px;
     text-transform: capitalize;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .checkout-area .form form .field-input input[type="text"] {
   border: 1px solid #ececec;
@@ -5686,7 +5659,7 @@ select:focus {
   position: relative;
   text-transform: uppercase;
   width: 100%;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .checkout-area .table .cart-table thead tr th {
   font-weight: 700;
@@ -5735,7 +5708,7 @@ select:focus {
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .checkout-area .table .cart-table tbody tr .qty {
@@ -5809,7 +5782,7 @@ select:focus {
   font-size: 16px;
   padding-left: 10px;
   font-weight: 700;
-  font-family: 'Khula', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 .cart-total .payment-options .option-block .checkbox label span b {
   color: #ffd526;
@@ -5885,7 +5858,7 @@ select:focus {
     color: #FFD526;
     font-size: 16px;
     font-weight: 700;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .login-register-area .form .remember-text .checkbox input {
     margin-top: 5px;
@@ -5933,14 +5906,14 @@ select:focus {
     float: right;
     font-weight: 700;
     margin: 20px 0 0;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .login-register-area .form h6 {
     color: #848484;
     float: left;
     font-size: 14px;
     margin: 28px 0 0 -50px;
-    font-family: 'Khula', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .login-register-area .form .input-field input[type="text"]:focus{
     border: 2px solid #FFD526;    
