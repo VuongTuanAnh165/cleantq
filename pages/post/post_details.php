@@ -2,10 +2,8 @@
 
 <?php
 require_once(__DIR__ . '/../../autoload/autoload.php');
-if(isset($_SESSION[getInput('name')]))
-{
+if (isset($_SESSION[getInput('name')])) {
     $id = intval($_SESSION[getInput('name')]);
-    unset($_SESSION[getInput('name')]);
 }
 //bài viết theo post_id
 $sql_post = "SELECT * FROM post WHERE  post_id=$id";
@@ -20,121 +18,133 @@ $sql_post_new = "SELECT * FROM post WHERE post_active=1 ORDER BY post_datetime_u
 $post_new = $db->fetchdata($sql_post_new);
 ?>
 
-
-<!-- page title -->
-<div class="page-title">
-    <div class="container-fluid">
-        <div class="row">
-            <div style="background-image: url(./photo/<?php echo $post['post_image1']?>);" class="inner-title">
-                <div class="overlay-image"></div>
-                <div class="banner-title">
-                    <div class="page-title-heading">
-                        Chi tiết tin tức<br><?php echo $post['post_title']?>
-                    </div>
-                    <div class="page-title-content link-style6">
-                        <span><a class="home" href="<?php echo base_url() ?>index.php">Trang chủ</a></span><span><a class="page-title-content-inner" href="<?php echo base_url() ?>pages/post_type/index.php">Nhóm tin tức</a></span><span><a class="page-title-content-inner" href="<?php echo base_url() ?>pages/post/index.php?id=<?php echo $post['post_type_id'] ?>">Tin tức</a></span><span class="page-title-content-inner">Chi tiết tin tức</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
 <!-- /.page-title -->
-
-<!-- main content -->
-<!-- main content -->
-<section class="flat-blog-detail">
+<!--Start breadcrumb area-->
+<section class="breadcrumb-area" style="background-image: url(<?php echo base_img('post') . $post['post_image1'] ?>);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="themesflat-spacer clearfix" data-desktop="166" data-mobile="0" data-smobile="0"></div>
+                <div class="breadcrumbs">
+                    <h1>Chi tiết tin tức<br><?php echo $post['post_title'] ?></h1>
+                </div>
             </div>
-            <div class="col-md-8">
-                <div class="post-wrap">
-                    <div class="content-blog-detail">
-                        <div class="image-box">
-                            <div class="image">
-                                <img src="<?php echo base_img('post')?>photo/<?php echo $post['post_image1'] ?>" alt="image">
-                            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-botton">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="<?php echo base_url() ?>index.php">Trang chủ</a></li>
+                        <li><span class="dotted"></span></li>
+                        <li><a href="<?php echo base_url() ?>pages/post_type/index.php">Nhóm tin tức</a></li>
+                        <li><span class="dotted"></span></li>
+                        <li><a href="./index.php?name=<?php $_SESSION[toSlug($item['post_type_title'])] = $item['post_type_id'];
+                                                        echo toSlug($item['post_type_title']) ?>">Tin tức</a></li>
+                        <li><span class="dotted"></span></li>
+                        <li class="active">Chi tiết tin tức</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb area-->
+
+<!--Start blog area-->
+<section id="blog-area" class="blog-single-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="blog-post">
+                    <div class="single-blog-post">
+                        <div class="published-date">
+                            <h5><?php echo $post['post_datetime_update'] ?></h5>
                         </div>
-                        <div class="content mg-top-15">
-                            <span class="content-info"><a href="#" class="user">
-                                    BY ADMIN
-                                </a><a href="#" class="date">
-                                    <?php echo $post['post_datetime_update'] ?>
-                                </a></span>
-                            <div class="heading-content-box">
-                                <a href="#">
-                                    <?php echo $post['post_title'] ?>
-                                </a>
+                        <div class="img-holder">
+                            <img src="<?php echo base_img('post') . $post['post_image1'] ?>" alt="Awesome Image">
+                        </div>
+                        <div class="text-holder">
+                            <h3 class="blog-title"><?php echo $post['post_title'] ?></h3>
+                            <div class="meta-info clearfix">
+                                <ul class="post-info">
+                                    <li><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Admin</a></li>
+                                    <li><i class="fa fa-tags" aria-hidden="true"></i><a href="#">Commercial Cleaning</a></li>
+                                </ul>
                             </div>
-                            <p class="desc-content-box text-decs">
+                            <div class="text">
                                 <?php echo $post['ptd_text'] ?>
-                            </p>
-                            <hr>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.post-wrap -->
-
             </div>
-            <!-- /.col-md-8 -->
-
-            <div class="col-md-4">
-                <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="60" data-smobile="60"></div>
-                <div class="side-bar">
-                    <div class="widgets-search">
-                        <h3 class="widgets-side-bar-title">
-                            Tìm kiếm
-                        </h3>
-                        <div class="widgets-input">
-                            <form method="get" role="search" class="search-form">
-                                <input type="search" class="search-field" placeholder="Tìm kiếm" value="" name="s" title="Search for">
-                                <button class="search-submit" type="submit" title="Search"></button>
-                            </form>
+            <!--Start sidebar Wrapper-->
+            <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">
+                <div class="sidebar-wrapper">
+                    <!--Start single sidebar-->
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Nhóm tin tức</h3>
+                            <span class="border"></span>
                         </div>
-                    </div>
-                    <div class="widgets-category">
-                        <h3 class="widgets-side-bar-title">
-                            Nhóm tin tức
-                        </h3>
-                        <ul class="list-category">
+                        <ul class="categories clearfix">
                             <?php foreach ($post_type as $item) : ?>
-                                <li><a href="<?php echo base_url() ?>pages/post/index.php?name=<?php $_SESSION[toSlug($item['post_type_title'])]= $item['post_type_id']; echo toSlug($item['post_type_title'])?>"><?php echo $item['post_type_title']?></a></li>
+                                <li><a href="<?php echo base_url() ?>pages/post/index.php?name=<?php $_SESSION[toSlug($item['post_type_title'])] = $item['post_type_id'];
+                                                                                                echo toSlug($item['post_type_title']) ?>"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><?php echo $item['post_type_title'] ?></a></li>
                             <?php endforeach ?>
                         </ul>
                     </div>
-                    <div class="widget widget_lastest">
-                        <h2 class="widgets-side-bar-title"><span>Tin tức mới</span></h2>
-                        <ul class="lastest-posts data-effect clearfix">
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Tin tức mới</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="latest-post">
                             <?php foreach ($post_new as $item) : ?>
-                                <li class="clearfix">
-                                    <div class="thumb data-effect-item has-effect-icon">
-                                        <img src="<?php echo base_img('post')?>photo/<?php echo $item['post_image1'] ?>" alt="Image">
+                                <li>
+                                    <div class="img-holder">
+                                        <img src="<?php echo base_img('post') . $item['post_image1'] ?>" alt="Awesome Image">
+                                        <div class="overlay-box">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <a href="<?php echo base_url() ?>pages/post/post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
+                                                                                                                        echo toSlug($item['post_title']) ?>">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        <h3><a href="post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])]= $item['post_id']; echo toSlug($item['post_title'])?>" class="title-thumb"><?php echo $item['post_title'] ?></a></h3>
-                                        <a href="#" class="date"><?php echo $item['post_datetime_update'] ?></a>
+                                    <div class="title-holder">
+                                        <a href="<?php echo base_url() ?>pages/post/post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
+                                                                                                            echo toSlug($item['post_title']) ?>">
+                                            <h5 class="post-title">
+                                                <?php echo $item['post_title'] ?>
+                                            </h5>
+                                        </a>
+                                        <h6 class="post-date">
+                                            <?php echo $item['post_datetime_update'] ?>
+                                        </h6>
                                     </div>
                                 </li>
                             <?php endforeach ?>
                         </ul>
                     </div>
+                    <!--End single sidebar-->
+                    <!--Start single-sidebar-->
+                    <!--End single-sidebar-->
                 </div>
-                <!-- /.col-md-4 -->
             </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-12">
-                <div class="themesflat-spacer clearfix" data-desktop="193" data-mobile="60" data-smobile="60"></div>
-            </div>
+            <!--End Sidebar Wrapper-->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container -->
 </section>
-<!-- /.main-content -->
+<!--End blog area-->
 
 
 
