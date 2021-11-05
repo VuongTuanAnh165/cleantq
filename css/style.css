@@ -3787,7 +3787,7 @@ select:focus {
     z-index: 1;
 }
 .breadcrumb-area::before {
-    background: rgba(0, 0, 0, 0.88) none repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
     background-position: center top;
     content: "";
     height: 100%;
