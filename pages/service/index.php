@@ -2,10 +2,8 @@
 
 <?php
 require_once(__DIR__ . '/../../autoload/autoload.php');
-if(isset($_SESSION[getInput('name')]))
-{
+if (isset($_SESSION[getInput('name')])) {
     $id = intval($_SESSION[getInput('name')]);
-    unset($_SESSION[getInput('name')]);
 }
 //dịch vụ theo service_gr_id
 $sql_service = "SELECT * FROM service WHERE service_gr_id=$id AND service_active=1";
@@ -24,102 +22,145 @@ $sql_post_new = "SELECT * FROM post WHERE post_active=1 ORDER BY post_datetime_u
 $post_new = $db->fetchdata($sql_post_new);
 ?>
 
-<!-- page title -->
-<div class="page-title">
-    <div class="container-fluid">
-        <div class="row">
-            <div style="background-image: url(<?php echo base_img('service')?>photo/<?php echo $service[0]['service_image']?>);" class="inner-title">
-                <div class="overlay-image"></div>
-                <div class="banner-title">
-                    <div class="page-title-heading">
-                        Dịch vụ<br><?php echo $service_group_id['service_gr_name']?>
-                    </div>
-                    <div class="page-title-content link-style6">
-                        <span><a class="home" href="<?php echo base_url() ?>index.php">Trang chủ</a></span><span><a class="page-title-content-inner" href="<?php echo base_url() ?>pages/service_group/index.php">Nhóm dịch vụ</a></span><span class="page-title-content-inner">Dịch vụ</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- /.page-title -->
-
 <!-- main content -->
-<section class="flat-blog-standard">
+<!--Start breadcrumb area-->
+<section class="breadcrumb-area" style="background-image: url(<?php echo base_img('service') . $service[0]['service_image'] ?>);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="themesflat-spacer clearfix" data-desktop="47" data-mobile="0" data-smobile="0"></div>
+                <div class="breadcrumbs">
+                    <h1>Dịch vụ<br><?php echo $service_group_id['service_gr_name'] ?></h1>
+                </div>
             </div>
-            <div class="col-md-8">
-                <div class="post-wrap">
-                    <?php foreach($service as $item): ?>
-                        <article class="article-1">
-                            <div class="image-box">
-                                <div class="image">
-                                    <img src="<?php echo base_img('service')?>photo/<?php echo $item['service_image'] ?>" alt="image">
+        </div>
+    </div>
+    <div class="breadcrumb-botton">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="<?php echo base_url() ?>index.php">Home</a></li>
+                        <li><span class="dotted"></span></li>
+                        <li><a href="<?php echo base_url() ?>pages/service_group/index.php">Nhóm dịch vụ</a></li>
+                        <li><span class="dotted"></span></li>
+                        <li class="active">Dịch vụ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb area-->
+
+<!--Start blog area-->
+<section id="blog-area" class="blog-list-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="blog-post">
+                    <!--Start single blog post-->
+                    <?php foreach ($service as $item) : ?>
+                        <div class="single-blog-post blog-list">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-5 col-xs-12">
+                                    <div class="img-holder">
+                                        <img src="<?php echo base_img('service') . $item['service_image'] ?>" alt="Awesome Image">
+                                        <div class="overlay-style-two">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <a href="service_details.php?name=<?php $_SESSION[toSlug($item['service_name'])] = $item['service_id'];
+                                                                                        echo toSlug($item['service_name']) ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="content-box">
-                                <div class="content-art">
-                                    <a href="service_details.php?name=<?php $_SESSION[toSlug($item['service_name'])]= $item['service_id']; echo toSlug($item['service_name'])?>" class="section-heading-jost-size28">
-                                        <?php echo $item['service_name']?>
-                                    </a>
-                                    <p class="desc-content-box text-decs">
-                                        <?php echo $item['service_description'] ?>
-                                    </p>
-                                    <div class="link-style2">
-                                        <a href="service_details.php?name=<?php $_SESSION[toSlug($item['service_name'])]= $item['service_id']; echo toSlug($item['service_name'])?>" class="read-more">
-                                            Xem thêm<i class="fas fa-long-arrow-alt-right"></i>
+                                <div class="col-md-8 col-sm-7 col-xs-12">
+                                    <div class="text-holder">
+                                        <a href="service_details.php?name=<?php $_SESSION[toSlug($item['service_name'])] = $item['service_id'];
+                                                                            echo toSlug($item['service_name']) ?>">
+                                            <h3 class="blog-title"><?php echo $item['service_name'] ?></h3>
                                         </a>
+                                        <div class="meta-info clearfix">
+                                            <ul class="post-info">
+                                                <li><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Admin</a></li>
+                                                <li><i class="fa fa-tags" aria-hidden="true"></i><a href="#">Apartment Cleaning</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="text">
+                                            <p><?php echo $item['service_description'] ?></p>
+                                            <a class="readmore" href="service_details.php?name=<?php $_SESSION[toSlug($item['service_name'])] = $item['service_id'];
+                                                                                                echo toSlug($item['service_name']) ?>">Xem thêm<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </article>
+                        </div>
                     <?php endforeach ?>
                 </div>
-                <!-- /.post-wrap -->
             </div>
-            <!-- /.col-md-8 -->
-
-            <div class="col-md-4">
-                <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="60" data-smobile="60"></div>
-                <div class="side-bar">
-                    <div class="widgets-category">
-                        <h3 class="widgets-side-bar-title">
-                            Nhóm dịch vụ
-                        </h3>
-                        <ul class="list-category">
-                            <?php foreach($service_group as $item): ?>
-                                <li><a href="<?php echo base_url() ?>pages/service/index.php?id=<?php echo $item['service_gr_id'] ?>"><?php echo $item['service_gr_name']?></a></li>
+            <!--Start sidebar Wrapper-->
+            <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">
+                <div class="sidebar-wrapper">
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Nhóm dịch vụ</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <?php foreach ($service_group as $item) : ?>
+                                <li><a href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])] = $item['service_gr_id'];
+                                                                                echo toSlug($item['service_gr_name']) ?>"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><?php echo $item['service_gr_name'] ?></a></li>
                             <?php endforeach ?>
                         </ul>
                     </div>
-                    <div class="widget widget_lastest">
-                        <h2 class="widgets-side-bar-title"><span>Tin tức mới</span></h2>
-                        <ul class="lastest-posts data-effect clearfix">
-                            <?php foreach($post_new as $item): ?>
-                                <li class="clearfix">
-                                    <div class="thumb data-effect-item has-effect-icon">
-                                        <img src="<?php echo base_img('post')?>photo/<?php echo $item['post_image1']?>" alt="Image">
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Tin tức mới</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="latest-post">
+                            <?php foreach ($post_new as $item) : ?>
+                                <li>
+                                    <div class="img-holder">
+                                        <img src="<?php echo base_img('post') . $item['post_image1'] ?>" alt="Awesome Image">
+                                        <div class="overlay-box">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <a href="<?php echo base_url() ?>pages/post/post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
+                                                                                                                        echo toSlug($item['post_title']) ?>">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        <h3><a href="<?php echo base_url()?>pages/post/post_details.php?id=<?php echo $item['post_id']?>" class="title-thumb"><?php echo $item['post_title']?></a></h3>
-                                        <a href="#" class="date"><?php echo $item['post_datetime_update']?></a>
+                                    <div class="title-holder">
+                                        <a href="<?php echo base_url() ?>pages/post/post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
+                                                                                                            echo toSlug($item['post_title']) ?>">
+                                            <h5 class="post-title">
+                                                <?php echo $item['post_title'] ?>
+                                            </h5>
+                                        </a>
+                                        <h6 class="post-date">
+                                            <?php echo $item['post_datetime_update'] ?>
+                                        </h6>
                                     </div>
                                 </li>
                             <?php endforeach ?>
                         </ul>
                     </div>
+                    <!--End single sidebar-->
                 </div>
-                <!-- /.col-md-4 -->
             </div>
-            <!-- /.row -->
+            <!--End Sidebar Wrapper-->
         </div>
-    </div> <!-- /.container -->
-</section><!-- /flat-blog -->
+    </div>
+</section>
+<!--End blog area-->
 
 
 
