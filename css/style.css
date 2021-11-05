@@ -1533,7 +1533,7 @@ select:focus {
     font-weight: 700;
     margin: 0 0 15px;
     line-height: 26px;
-    text-transform:capitalize;
+    text-transform:uppercase;
     transition: all 500ms ease;
 }
 .single-blog-post .text-holder .blog-title:hover{
