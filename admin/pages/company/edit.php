@@ -12,82 +12,247 @@ if (empty($company_check)) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors_img = "";
-    $file_name = $_FILES['company_logo']['name'];
-    $file_size = $_FILES['company_logo']['size'];
-    $file_tmp = $_FILES['company_logo']['tmp_name'];
-    $file_type = $_FILES['company_logo']['type'];
-    $file_parts = explode('.', $_FILES['company_logo']['name']);
-    $file_ext = strtolower(end($file_parts));
-    $expensions = array("jpeg", "jpg", "png");
-
-    $company_logo = substr(md5(mt_rand()), 0, -1) . '.' . $file_ext;
-    $target = "../../../pages_img/company/" . basename($company_logo);
-
-    $file_name1 = $_FILES['company_logo']['name'];
-    $file_size1 = $_FILES['company_logo']['size'];
-    $file_tmp1 = $_FILES['company_logo']['tmp_name'];
-    $file_type1 = $_FILES['company_logo']['type'];
-    $file_parts1 = explode('.', $_FILES['company_logo']['name']);
-    $file_ext1 = strtolower(end($file_parts1));
-    $expensions1 = array("jpeg", "jpg", "png");
-
-    $company_img = substr(md5(mt_rand()), 0, -1) . '.' . $file_ext1;
-    $target1 = "../../../pages_img/company/" . basename($company_img);
-
-    $data =
-        [
-            "company_name" => postInput('company_name'),
-            "company_logo" => $company_logo,
-            "company_logo" => $company_img,
-            "company_email" => postInput('company_email'),
-            "company_address" => postInput('company_address'),
-            "company_mobile" => postInput('company_mobile'),
-            "company_phone" => postInput('company_phone'),
-            "company_description" => postInput('company_description'),
-            "company_content" => postInput('company_content')
-        ];
-    $data_img =
-        [
-            "pages_img_gr_id" => 2,
-            "pages_img_name" => $company_logo,
-            "pages_img_link" => base_img("company").$company_logo
-        ];
-    $data_img1 =
-        [
-            "pages_img_gr_id" => 2,
-            "pages_img_name" => $company_img,
-            "pages_img_link" => base_img("company").$company_img
-        ];
-    if (postInput('company_name') == '') {
-        echo "<script>alert('Mời bạn nhập đầy đủ tên công ty');</script>";
-    } else {
-        if (in_array($file_ext, $expensions) === false || in_array($file_ext1, $expensions1) === false) {
-            echo "<script>alert('Chỉ hỗ trợ upload file JPEG hoặc PNG.');</script>";
+    if ($_FILES['company_logo']['name'] == '' && $_FILES['company_img']['name'] == '') {
+        $data =
+            [
+                "company_name" => postInput('company_name'),
+                "company_email" => postInput('company_email'),
+                "company_address" => postInput('company_address'),
+                "company_mobile" => postInput('company_mobile'),
+                "company_phone" => postInput('company_phone'),
+                "company_description" => postInput('company_description'),
+                "company_content" => postInput('company_content')
+            ];
+        if (postInput('company_name') == '') {
+            echo "<script>alert('Mời bạn nhập đầy đủ tên công ty');</script>";
         } else {
-            if ($file_size > 2097152 || $file_size1 > 2097152) {
-                echo "<script>alert('Kích thước file không được lớn hơn 2MB.');</script>";
-            } else {
-                if ($post['company_name'] != $data['company_name']) {
-                    $id_update = $db->update("company", $data, array("company_id" => $id));
-                    $id_insert_img = $db->insert("pages_img", $data_img);
-                    $id_insert_img1 = $db->insert("pages_img", $data_img1);
-                    if ($id_update > 0 && $id_insert_img > 0 && $id_insert_img1 > 0  && move_uploaded_file($_FILES['company_logo']['tmp_name'], $target) && move_uploaded_file($_FILES['company_img']['tmp_name'], $target)) {
-                        $_SESSION['success'] = " Cập nhật thành công ";
-                        redirectAdmin($open);
-                    } else {
-                        $_SESSION['error'] = " Dữ liệu không thay đổi ";
-                        redirectAdmin($open);
-                    }
+            if ($post['company_name'] != $data['company_name']) {
+                $id_update = $db->update("company", $data, array("company_id" => $id));
+                if ($id_update > 0) {
+                    $_SESSION['success'] = " Cập nhật thành công ";
+                    redirectAdmin($open);
                 } else {
-                    $id_update = $db->update("company", $data, array("company_id" => $id));
-                    $id_insert_img = $db->insert("pages_img", $data_img);
-                    $id_insert_img1 = $db->insert("pages_img", $data_img1);
-                    if ($id_update > 0 && $id_insert_img > 0 && $id_insert_img1 > 0  && move_uploaded_file($_FILES['company_logo']['tmp_name'], $target) && move_uploaded_file($_FILES['company_img']['tmp_name'], $target)) {
-                        $_SESSION['success'] = " Cập nhật thành công ";
-                        redirectAdmin($open);
+                    $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                    redirectAdmin($open);
+                }
+            } else {
+                $id_update = $db->update("company", $data, array("company_id" => $id));
+                if ($id_update > 0) {
+                    $_SESSION['success'] = " Cập nhật thành công ";
+                    redirectAdmin($open);
+                } else {
+                    $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                    redirectAdmin($open);
+                }
+            }
+        }
+    } else {
+        if ($_FILES['company_logo']['name'] != '' && $_FILES['company_img']['name'] == '') {
+            $file_name = $_FILES['company_logo']['name'];
+            $file_size = $_FILES['company_logo']['size'];
+            $file_tmp = $_FILES['company_logo']['tmp_name'];
+            $file_type = $_FILES['company_logo']['type'];
+            $file_parts = explode('.', $_FILES['company_logo']['name']);
+            $file_ext = strtolower(end($file_parts));
+            $expensions = array("jpeg", "jpg", "png");
+
+            $company_logo = substr(md5(mt_rand()), 0, -1) . '.' . $file_ext;
+            $target = "../../../pages_img/company/" . basename($company_logo);
+
+            $data =
+                [
+                    "company_name" => postInput('company_name'),
+                    "company_logo" => $company_logo,
+                    "company_email" => postInput('company_email'),
+                    "company_address" => postInput('company_address'),
+                    "company_mobile" => postInput('company_mobile'),
+                    "company_phone" => postInput('company_phone'),
+                    "company_description" => postInput('company_description'),
+                    "company_content" => postInput('company_content')
+                ];
+            $data_img =
+                [
+                    "pages_img_gr_id" => 2,
+                    "pages_img_name" => $company_logo,
+                    "pages_img_link" => base_img("company") . $company_logo
+                ];
+            if (postInput('company_name') == '') {
+                echo "<script>alert('Mời bạn nhập đầy đủ tên công ty');</script>";
+            } else {
+                if (in_array($file_ext, $expensions) === false) {
+                    echo "<script>alert('Chỉ hỗ trợ upload file JPEG hoặc PNG.');</script>";
+                } else {
+                    if ($file_size > 2097152) {
+                        echo "<script>alert('Kích thước file không được lớn hơn 2MB.');</script>";
                     } else {
-                        $_SESSION['error'] = " Dữ liệu không thay đổi ";
-                        redirectAdmin($open);
+                        if ($post['company_name'] != $data['company_name']) {
+                            $id_update = $db->update("company", $data, array("company_id" => $id));
+                            $id_insert_img = $db->insert("pages_img", $data_img);
+                            if ($id_update > 0 && $id_insert_img > 0  && move_uploaded_file($_FILES['company_logo']['tmp_name'], $target)) {
+                                $_SESSION['success'] = " Cập nhật thành công ";
+                                redirectAdmin($open);
+                            } else {
+                                $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                                redirectAdmin($open);
+                            }
+                        } else {
+                            $id_update = $db->update("company", $data, array("company_id" => $id));
+                            $id_insert_img = $db->insert("pages_img", $data_img);
+                            if ($id_update > 0 && $id_insert_img > 0  && move_uploaded_file($_FILES['company_logo']['tmp_name'], $target)) {
+                                $_SESSION['success'] = " Cập nhật thành công ";
+                                redirectAdmin($open);
+                            } else {
+                                $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                                redirectAdmin($open);
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            if ($_FILES['company_logo']['name'] == '' && $_FILES['company_img']['name'] != '') {
+
+                $file_name1 = $_FILES['company_img']['name'];
+                $file_size1 = $_FILES['company_img']['size'];
+                $file_tmp1 = $_FILES['company_img']['tmp_name'];
+                $file_type1 = $_FILES['company_img']['type'];
+                $file_parts1 = explode('.', $_FILES['company_img']['name']);
+                $file_ext1 = strtolower(end($file_parts1));
+                $expensions1 = array("jpeg", "jpg", "png");
+
+                $company_img = substr(md5(mt_rand()), 0, -1) . '.' . $file_ext1;
+                $target1 = "../../../pages_img/company/" . basename($company_img);
+
+                $data =
+                    [
+                        "company_name" => postInput('company_name'),
+                        "company_img" => $company_img,
+                        "company_email" => postInput('company_email'),
+                        "company_address" => postInput('company_address'),
+                        "company_mobile" => postInput('company_mobile'),
+                        "company_phone" => postInput('company_phone'),
+                        "company_description" => postInput('company_description'),
+                        "company_content" => postInput('company_content')
+                    ];
+                $data_img1 =
+                    [
+                        "pages_img_gr_id" => 2,
+                        "pages_img_name" => $company_img,
+                        "pages_img_link" => base_img("company") . $company_img
+                    ];
+                if (postInput('company_name') == '') {
+                    echo "<script>alert('Mời bạn nhập đầy đủ tên công ty');</script>";
+                } else {
+                    if (in_array($file_ext1, $expensions1) === false) {
+                        echo "<script>alert('Chỉ hỗ trợ upload file JPEG hoặc PNG.');</script>";
+                    } else {
+                        if ($file_size1 > 2097152) {
+                            echo "<script>alert('Kích thước file không được lớn hơn 2MB.');</script>";
+                        } else {
+                            if ($post['company_name'] != $data['company_name']) {
+                                $id_update = $db->update("company", $data, array("company_id" => $id));
+                                $id_insert_img1 = $db->insert("pages_img", $data_img1);
+                                if ($id_update > 0 && $id_insert_img1 > 0  && move_uploaded_file($_FILES['company_img']['tmp_name'], $target1)) {
+                                    $_SESSION['success'] = " Cập nhật thành công ";
+                                    redirectAdmin($open);
+                                } else {
+                                    $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                                    redirectAdmin($open);
+                                }
+                            } else {
+                                $id_update = $db->update("company", $data, array("company_id" => $id));
+                                $id_insert_img1 = $db->insert("pages_img", $data_img1);
+                                if ($id_update > 0 && $id_insert_img1 > 0  && move_uploaded_file($_FILES['company_img']['tmp_name'], $target1)) {
+                                    $_SESSION['success'] = " Cập nhật thành công ";
+                                    redirectAdmin($open);
+                                } else {
+                                    $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                                    redirectAdmin($open);
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                $file_name = $_FILES['company_logo']['name'];
+                $file_size = $_FILES['company_logo']['size'];
+                $file_tmp = $_FILES['company_logo']['tmp_name'];
+                $file_type = $_FILES['company_logo']['type'];
+                $file_parts = explode('.', $_FILES['company_logo']['name']);
+                $file_ext = strtolower(end($file_parts));
+                $expensions = array("jpeg", "jpg", "png");
+
+                $company_logo = substr(md5(mt_rand()), 0, -1) . '.' . $file_ext;
+                $target = "../../../pages_img/company/" . basename($company_logo);
+
+                $file_name1 = $_FILES['company_img']['name'];
+                $file_size1 = $_FILES['company_img']['size'];
+                $file_tmp1 = $_FILES['company_img']['tmp_name'];
+                $file_type1 = $_FILES['company_img']['type'];
+                $file_parts1 = explode('.', $_FILES['company_img']['name']);
+                $file_ext1 = strtolower(end($file_parts1));
+                $expensions1 = array("jpeg", "jpg", "png");
+
+                $company_img = substr(md5(mt_rand()), 0, -1) . '.' . $file_ext1;
+                $target1 = "../../../pages_img/company/" . basename($company_img);
+
+                $data =
+                    [
+                        "company_name" => postInput('company_name'),
+                        "company_logo" => $company_logo,
+                        "company_img" => $company_img,
+                        "company_email" => postInput('company_email'),
+                        "company_address" => postInput('company_address'),
+                        "company_mobile" => postInput('company_mobile'),
+                        "company_phone" => postInput('company_phone'),
+                        "company_description" => postInput('company_description'),
+                        "company_content" => postInput('company_content')
+                    ];
+                $data_img =
+                    [
+                        "pages_img_gr_id" => 2,
+                        "pages_img_name" => $company_logo,
+                        "pages_img_link" => base_img("company") . $company_logo
+                    ];
+                $data_img1 =
+                    [
+                        "pages_img_gr_id" => 2,
+                        "pages_img_name" => $company_img,
+                        "pages_img_link" => base_img("company") . $company_img
+                    ];
+                if (postInput('company_name') == '') {
+                    echo "<script>alert('Mời bạn nhập đầy đủ tên công ty');</script>";
+                } else {
+                    if (in_array($file_ext, $expensions) === false || in_array($file_ext1, $expensions1) === false) {
+                        echo "<script>alert('Chỉ hỗ trợ upload file JPEG hoặc PNG.');</script>";
+                    } else {
+                        if ($file_size > 2097152 || $file_size1 > 2097152) {
+                            echo "<script>alert('Kích thước file không được lớn hơn 2MB.');</script>";
+                        } else {
+                            if ($post['company_name'] != $data['company_name']) {
+                                $id_update = $db->update("company", $data, array("company_id" => $id));
+                                $id_insert_img = $db->insert("pages_img", $data_img);
+                                $id_insert_img1 = $db->insert("pages_img", $data_img1);
+                                if ($id_update > 0 && $id_insert_img > 0 && $id_insert_img1 > 0  && move_uploaded_file($_FILES['company_logo']['tmp_name'], $target) && move_uploaded_file($_FILES['company_img']['tmp_name'], $target1)) {
+                                    $_SESSION['success'] = " Cập nhật thành công ";
+                                    redirectAdmin($open);
+                                } else {
+                                    $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                                    redirectAdmin($open);
+                                }
+                            } else {
+                                $id_update = $db->update("company", $data, array("company_id" => $id));
+                                $id_insert_img = $db->insert("pages_img", $data_img);
+                                $id_insert_img1 = $db->insert("pages_img", $data_img1);
+                                if ($id_update > 0 && $id_insert_img > 0 && $id_insert_img1 > 0  && move_uploaded_file($_FILES['company_logo']['tmp_name'], $target) && move_uploaded_file($_FILES['company_img']['tmp_name'], $target1)) {
+                                    $_SESSION['success'] = " Cập nhật thành công ";
+                                    redirectAdmin($open);
+                                } else {
+                                    $_SESSION['error'] = " Dữ liệu không thay đổi ";
+                                    redirectAdmin($open);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -136,16 +301,24 @@ require_once(__DIR__ . '/../../layout/header.php');
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Logo</label>
                             <div class="col-sm-8">
-                                <input type="file" class='form-control-file' id="exampleFormControlFile1" name='company_logo' onchange="preview_thumbail(this);">
-                                <img width="100px" id="anh" src="<?php echo base_img('company').$company_check['company_logo'] ?>" alt="your image">
+                                <label className='cursor-pointer select-wrapper'>
+                                    <div className='logo-wrapper'>
+                                        <img width="100px" id="anh" alt='logo' src="<?php echo base_img('company') . $company_check['company_logo'] ?>">
+                                    </div>
+                                    <input id="exampleFormControlFile1" type="file" style="display: none;" onchange="preview_thumbail(this);" name='company_logo' />
+                                </label>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh nền</label>
                             <div class="col-sm-8">
-                                <input type="file" class='form-control-file' id="exampleFormControlFile1" name='company_img' onchange="preview_thumbail1(this);">
-                                <img width="100px" id="anh1" src="<?php echo base_img('company').$company_check['company_img'] ?>" alt="your image">
+                                <label className='cursor-pointer select-wrapper'>
+                                    <div className='logo-wrapper'>
+                                        <img width="100px" id="anh1" alt='your image' src="<?php echo base_img('company') . $company_check['company_img'] ?>">
+                                    </div>
+                                    <input id="exampleFormControlFile1" type="file" style="display: none;" onchange="preview_thumbail1(this);" name='company_img' />
+                                </label>
                             </div>
                         </div>
 
