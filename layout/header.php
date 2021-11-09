@@ -64,11 +64,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-5 col-xs-12">
-                        <div class="quote-button pull-right">
-                            <a class="thm-btn bg-clr1" href="#">Đăng ký ngay</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -133,9 +128,9 @@
                             <div class="seach-toggle"><i class="fa fa-search"></i></div>
                             <ul class="search-box">
                                 <li>
-                                    <form method="post" action="index.html">
+                                    <form method="post" action="<?php echo base_url()?>pages/post/index.php">
                                         <div class="form-group">
-                                            <input type="search" name="search" placeholder="Search Here" required>
+                                            <input type="search" name="post_title" placeholder="Search Here" required>
                                             <button type="submit"><i class="fa fa-search"></i></button>
                                         </div>
                                     </form>
