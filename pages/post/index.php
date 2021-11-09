@@ -23,7 +23,14 @@ $post_new = $db->fetchdata($sql_post_new);
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $post_title = $_POST['post_title'];
+    $_SESSION['post_title'] = $_POST['post_title'];
+}
+?>
+
+<?php
+if(isset($_SESSION['post_title']))
+{
+    $post_title=$_SESSION['post_title'];
     if ($post_title != '') {
         $sql_post = "SELECT * FROM post WHERE post_title LIKE '%$post_title%' AND post_active=1";
         $post = $db->fetchdata($sql_post);
