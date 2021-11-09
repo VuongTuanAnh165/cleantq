@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_insert = $db->insert("user_tb", $data);
     if ($id_insert > 0) {
-        echo "<script>alert('Gửi Thông tin thành công')</script>";
+        echo "<script>alert('Gửi Thông tin thành công');window.location='".base_url()."index.php'</script>";
     } else {
         echo "<script>alert('Gửi không thành, yêu cầu bạn nhập đầy đủ thông tin')</script>";
     }
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div class="contact-form">
             
-                    <form method="POST" class="default-form" id="contact-form" action="" accept-charset="utf-8" novalidate="novalidate">
+                    <form method="POST" class="default-form" action="" accept-charset="utf-8" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" name="user_name" value="" placeholder="Tên của bạn" required="">
