@@ -23,7 +23,9 @@
                     </div>
                     <div class="text-holder">
                         <h3>ĐIỆN THOẠI</h3>
-                        <p><a style="color: white;" href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a></p>
+                        <p><a style="color: white;"
+                                href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -36,7 +38,9 @@
                     </div>
                     <div class="text-holder">
                         <h3>LIÊN HỆ</h3>
-                        <p>Email: <a style="color: white;" href="mailto:<?php echo $company['company_email'] ?>"><?php echo $company['company_email'] ?></a></p>
+                        <p>Email: <a style="color: white;"
+                                href="mailto:<?php echo $company['company_email'] ?>"><?php echo $company['company_email'] ?></a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -74,7 +78,9 @@
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                 </div>
                                 <div class="text-holder">
-                                    <p><a style="color:#eb7616;" href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a></p>
+                                    <p><a style="color:#eb7616;"
+                                            href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a>
+                                    </p>
                                 </div>
                             </li>
                             <br>
@@ -83,7 +89,9 @@
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </div>
                                 <div class="text-holder">
-                                    <p><a style="color: #eb7616;" href="mailto:<?php echo $company['company_email'] ?>"><?php echo $company['company_email'] ?></a></p>
+                                    <p><a style="color: #eb7616;"
+                                            href="mailto:<?php echo $company['company_email'] ?>"><?php echo $company['company_email'] ?></a>
+                                    </p>
                                 </div>
                             </li>
                         </ul>
@@ -142,7 +150,9 @@
                     <div class="title">
                         <h3>Địa chỉ</h3>
                     </div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9505761084874!2d105.79740201488353!3d21.034663485995285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab40a938cc61%3A0xc85d3ac4f97150af!2zNjkgRMawxqFuZyBRdeG6o25nIEjDoG0sIFF1YW4gSG9hLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1635911411238!5m2!1svi!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9505761084874!2d105.79740201488353!3d21.034663485995285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab40a938cc61%3A0xc85d3ac4f97150af!2zNjkgRMawxqFuZyBRdeG6o25nIEjDoG0sIFF1YW4gSG9hLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1635911411238!5m2!1svi!2s"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <!--End single footer widget-->
@@ -163,6 +173,25 @@
     </div>
 </section>
 <!--End copyright area-->
+
+<!--====== Start Call-zalo ======-->
+<div class="global-thread-create-ctas swap-positions">
+    <a href="https://zalo.me/0862049366 " title="0862049366 " target="_blank" rel="nofollow">
+        <div class="zalo"></div>
+    </a>
+</div>
+<!--====== End Call-zalo ======-->
+
+<div class="global-thread-create-cta swap-position">
+    <div class="coccoc-alo-ph-circle-fill animate__animated  animate__pulse" style="background-color: #2674b2">&nbsp;
+    </div>
+    <a id="hotline-cta" href="tel:0862049366 " rel="nofollow" class="hotline-cta-swap">
+        <div class="coccoc-alo-ph-img-circle animate__animated animate__tada"
+            style="background-color: #2674b2; transform: scaleX(-1)">
+            <div class="phone"></div>
+        </div>
+    </a>
+</div>
 
 
 
@@ -217,7 +246,8 @@
 <script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
 <script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
 <script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.layeranimation.min.js">
+</script>
 <script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
 <script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
 <script src="<?php echo base_url()?>assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>

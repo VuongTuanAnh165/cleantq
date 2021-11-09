@@ -58,9 +58,13 @@
                     <div class="col-lg-10 col-md-8 col-sm-7 col-xs-12">
                         <div class="top-left">
                             <ul class="clearfix">
-                                <li class="info-list margin-top"><i class="fa fa-phone" aria-hidden="true"></i><a style="color: white;" href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a></li>
+                                <li class="info-list margin-top"><i class="fa fa-phone" aria-hidden="true"></i><a
+                                        style="color: white;"
+                                        href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a>
+                                </li>
 
-                                <li class="info-list margin-top"><i class="fa fa-map-marker" aria-hidden="true"></i><?php echo $company['company_address'] ?></li>
+                                <li class="info-list margin-top"><i class="fa fa-map-marker"
+                                        aria-hidden="true"></i><?php echo $company['company_address'] ?></li>
                             </ul>
                         </div>
                     </div>
@@ -73,18 +77,20 @@
         <section class="mainmenu-area style-two stricky">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+                    <div class="col-lg-4 col-md-3 col-sm-3 col-xs-8">
                         <div class="logo">
                             <a href="<?php echo base_url()?>index.php">
-                                <img src="<?php echo base_img('company').$company['company_logo'] ?>" style="width:220px;" alt="Logo">
+                                <img src="<?php echo base_img('company').$company['company_logo'] ?>" id="logo-custom"
+                                    style="width:220px;" alt="Logo">
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12">
+                    <div class="col-lg-8 col-md-9 col-sm-9 col-xs-4">
                         <!--Start mainmenu-->
                         <nav class="main-menu pull-left">
                             <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                    data-target=".navbar-collapse">
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
@@ -94,18 +100,23 @@
                                 <ul class="navigation clearfix">
 
                                     <li><a href="<?php echo base_url()?>pages/company/index.php">Giới thiệu</a></li>
-                                    <li class="dropdown"><a href="<?php echo base_url()?>pages/service_group/index.php">Dịch vụ vệ sinh</a>
+                                    <li class="dropdown"><a
+                                            href="<?php echo base_url()?>pages/service_group/index.php">Dịch vụ vệ
+                                            sinh</a>
                                         <ul>
                                             <?php foreach($service_group as $item): ?>
-                                                <li><a href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])]= $item['service_gr_id']; echo toSlug($item['service_gr_name'])?>" title=""><?php echo $item['service_gr_name'] ?></a></li>
+                                            <li><a href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])]= $item['service_gr_id']; echo toSlug($item['service_gr_name'])?>"
+                                                    title=""><?php echo $item['service_gr_name'] ?></a></li>
                                             <?php endforeach ?>
                                         </ul>
                                     </li>
                                     <li><a href="<?php echo base_url() ?>pages/video_clip/index.php">Video Clip</a></li>
-                                    <li class="dropdown"><a href="<?php echo base_url() ?>/pages/post_type/index.php">Tin tức</a>
+                                    <li class="dropdown"><a
+                                            href="<?php echo base_url() ?>/pages/post_type/index.php">Tin tức</a>
                                         <ul>
                                             <?php foreach ($post_type as $item) : ?>
-                                                <li><a href="<?php echo base_url() ?>pages/post/index.php?name=<?php $_SESSION[toSlug($item['post_type_title'])]= $item['post_type_id']; echo toSlug($item['post_type_title'])?>" title=""><?php echo $item['post_type_title'] ?></a></li>
+                                            <li><a href="<?php echo base_url() ?>pages/post/index.php?name=<?php $_SESSION[toSlug($item['post_type_title'])]= $item['post_type_id']; echo toSlug($item['post_type_title'])?>"
+                                                    title=""><?php echo $item['post_type_title'] ?></a></li>
                                             <?php endforeach ?>
                                         </ul>
                                     </li>

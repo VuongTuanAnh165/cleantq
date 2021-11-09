@@ -362,6 +362,7 @@
 .single-footer-widget.pdleft {
     padding-left: 0;
     margin-top: 40px;
+    display: none;
 }    
 .single-footer-widget.margin {
     margin-left: 0;
@@ -760,7 +761,27 @@
     width: 45px;
     height: 40px;
     border-radius: 0;
+    margin-top: 15px;
 }  
+
+.gallery-area{
+    padding-top: 80px;
+    padding-bottom:80px;
+}
+
+.footer-area{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.single-footer-widget .title h3{
+    text-align: center;
+}
+
+.express-quote-area #quote-form .ui-selectmenu-button{
+    margin-bottom: 15px !important;
+}
+
 .main-menu .navbar-header .navbar-toggle .icon-bar {
   background: #0065bd none repeat scroll 0 0;
   font-weight: 700;
@@ -920,6 +941,7 @@
 .single-footer-widget.pdleft {
     padding-left: 0;
     margin-top: 40px;
+    display: none;
 }    
 .single-footer-widget.margin {
     margin-left: 0;
@@ -956,8 +978,14 @@
     Top bar area style
 =============================================
 ***/
+#logo-custom{
+    width:150px !important;
+    float:left;
+}
+
 .top-bar-area {
     padding-bottom: 20px;
+    display: none;
 }    
 .top-bar-area .top-left {
     width: 250px;
