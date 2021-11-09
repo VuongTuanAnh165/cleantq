@@ -93,6 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <input type="text" name="user_address" value="" placeholder="Địa chỉ">   
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
                                 <textarea name="user_cmt" placeholder="Tin nhắn của bạn.." required=""></textarea>
                             </div>
                         </div>

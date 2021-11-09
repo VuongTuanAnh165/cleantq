@@ -392,7 +392,7 @@ $post_new = $db->fetchdata($sql_post_new);
                         <div class="col-md-6">
                             <input type="text" name="user_name" value="" placeholder="Họ và tên*" required="">
                             <input type="text" name="user_number_phone" value="" placeholder="Số điện thoại*" required="">
-                            <select class="selectmenu">
+                            <select class="selectmenu" name="service_gr_id">
                                 <?php foreach ($service_group as $item) : ?>
                                     <option value="<?php echo $item['service_gr_id'] ?>">
                                         <?php echo $item['service_gr_name'] ?></option>
@@ -402,6 +402,7 @@ $post_new = $db->fetchdata($sql_post_new);
                         <div class="col-md-6">
                             <input type="text" name="user_address" value="" placeholder="Địa chỉ" required="">
                             <input type="email" name="user_email" value="" placeholder="Email*">
+                            <textarea name="user_cmt" placeholder="Tin nhắn của bạn.." required=""></textarea>
                             <button class="thm-btn bg-clr1" type="submit">Gửi</button>
                         </div>
                     </div>
