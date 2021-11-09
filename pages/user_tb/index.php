@@ -32,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!--Start breadcrumb area-->
-<section class="breadcrumb-area" style="background-image: url(https://azmax.vn/wp-content/uploads/2016/10/khach-hang-la-gi-az-crm.jpg);">
+<section class="breadcrumb-area"
+    style="background-image: url(https://azmax.vn/wp-content/uploads/2016/10/khach-hang-la-gi-az-crm.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -68,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div class="contact-form">
-            
+
                     <form method="POST" class="default-form" action="" accept-charset="utf-8" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
@@ -85,15 +86,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="col-md-6">
                                 <select class="selectmenu" name="service_gr_id">
                                     <?php foreach ($service_group as $item) : ?>
-                                        <option value="<?php echo $item['service_gr_id'] ?>">
-                                            <?php echo $item['service_gr_name'] ?></option>
+                                    <option value="<?php echo $item['service_gr_id'] ?>">
+                                        <?php echo $item['service_gr_name'] ?></option>
                                     <? endforeach ?>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="text" name="user_address" value="" placeholder="Địa chỉ">   
+                                <input type="text" name="user_address" value="" placeholder="Địa chỉ">
                             </div>
                         </div>
                         <div class="row">
@@ -119,7 +120,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p><?php echo $company['company_description'] ?></p>
                     <div class="call-us">
                         <h6>Điện thoại</h6>
-                        <h2><a style="color: white;" href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a></h2>
+                        <h2><a style="color: white;"
+                                href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a>
+                        </h2>
                     </div>
                 </div>
             </div>
