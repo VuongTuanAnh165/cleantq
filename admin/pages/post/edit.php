@@ -161,7 +161,7 @@ require_once(__DIR__ . '/../../layout/header.php');
                             <div style="margin-bottom: 1%;" class="col-sm-8">
                                 <label className='cursor-pointer select-wrapper'>
                                     <div className='logo-wrapper'>
-                                        <img width="100px" id="anh" src="<?php echo base_img('post') . $post['post_image1'] ?>" alt="<?php echo $post['post_image1'] ?>">
+                                        <img width="100px" id="anh1" src="<?php echo base_img('post') . $post['post_image1'] ?>" alt="<?php echo $post['post_image1'] ?>">
                                     </div>
                                     <input id="exampleFormControlFile1" type="file" style="display: none;" onchange="preview_thumbail1(this);" name='post_image1' />
                                 </label>

@@ -157,20 +157,18 @@ $post_new = $db->fetchdata($sql_post_new);
                     <div class="row">
                         <div class="col-md-6">
                             <input type="text" name="user_name" value="" placeholder="Họ và tên*" required="">
-                            <input type="text" name="user_number_phone" value="" placeholder="Số điện thoại*"
-                                required="">
+                            <input type="text" name="user_number_phone" value="" placeholder="Số điện thoại*" required="">
                             <select class="selectmenu" name="service_gr_id">
                                 <?php foreach ($service_group as $item) : ?>
-                                <option value="<?php echo $item['service_gr_id'] ?>">
-                                    <?php echo $item['service_gr_name'] ?></option>
+                                    <option value="<?php echo $item['service_gr_id'] ?>">
+                                        <?php echo $item['service_gr_name'] ?></option>
                                 <? endforeach ?>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <input type="text" name="user_address" value="" placeholder="Địa chỉ" required="">
                             <input type="email" name="user_email" value="" placeholder="Email*">
-                            <textarea style="width:100%" name="user_cmt" placeholder="Tin nhắn của bạn.."
-                                required=""></textarea>
+                            <textarea style="width:100%" name="user_cmt" placeholder="Tin nhắn của bạn.." required=""></textarea>
                             <button class="thm-btn bg-clr1" type="submit">Gửi</button>
                         </div>
                     </div>
@@ -191,42 +189,33 @@ $post_new = $db->fetchdata($sql_post_new);
         <div class="row">
             <div class="col-md-7">
                 <div class="wedo-carousel">
-                    <div class="single-item">
-                        <img src="images/whatwe-do/services_1.jpg" alt="Awesome Image">
-                    </div>
-                    <div class="single-item">
-                        <img src="images/whatwe-do/services_2.jpg" alt="Awesome Image">
-                    </div>
-                    <div class="single-item">
-                        <img src="images/whatwe-do/services_3.jpg" alt="Awesome Image">
-                    </div>
-                    <div class="single-item">
-                        <img src="images/whatwe-do/services_4.jpg" alt="Awesome Image">
-                    </div>
+                    <?php foreach ($service_group_rand as $item) : ?>
+                        <div class="single-item">
+                            <img src="<?php echo base_img('service_group') . $item['service_gr_img'] ?>" alt="Awesome Image">
+                        </div>
+                    <?php endforeach ?>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="text-box">
                     <ul>
                         <?php foreach ($service_group_rand as $item) : ?>
-                        <li>
-                            <div class="icon-box">
-                                <a
-                                    href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])] = $item['service_gr_id'];
+                            <li>
+                                <div class="icon-box">
+                                    <a href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])] = $item['service_gr_id'];
                                                                                                     echo toSlug($item['service_gr_name']) ?>">
-                                    <span class="flaticon-kettle"></span>
-                                </a>
+                                        <span class="flaticon-kettle"></span>
+                                    </a>
 
-                            </div>
-                            <div class="text-holder">
-                                <a
-                                    href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])] = $item['service_gr_id'];
+                                </div>
+                                <div class="text-holder">
+                                    <a href="<?php echo base_url() ?>pages/service/index.php?name=<?php $_SESSION[toSlug($item['service_gr_name'])] = $item['service_gr_id'];
                                                                                                     echo toSlug($item['service_gr_name']) ?>">
-                                    <h3><?php echo $item['service_gr_name'] ?></h3>
-                                </a>
-                                <p><?php echo $item['service_gr_description'] ?></p>
-                            </div>
-                        </li>
+                                        <h3><?php echo $item['service_gr_name'] ?></h3>
+                                    </a>
+                                    <p><?php echo $item['service_gr_description'] ?></p>
+                                </div>
+                            </li>
                         <?php endforeach ?>
                     </ul>
                 </div>
@@ -295,31 +284,30 @@ $post_new = $db->fetchdata($sql_post_new);
         <div class="row">
             <!--Start single gallery item-->
             <?php foreach ($pages_img_rand as $item) : ?>
-            <div class="col-md-4">
-                <div class="single-gallery-item">
-                    <div class="img-holder">
-                        <img width="360px" height="321px" src="<?php echo $item['pages_img_link'] ?>"
-                            alt="Awesome Image">
-                        <div class="top-overlay">
-                            <div class="overlay-box">
-                                <div class="box">
-                                    <div class="content">
-                                        <a href="<?php base_url() ?>pages/video_clip/index.php">
-                                            <i class="fa fa-link" aria-hidden="true"></i>
-                                        </a>
+                <div class="col-md-4">
+                    <div class="single-gallery-item">
+                        <div class="img-holder">
+                            <img width="360px" height="321px" src="<?php echo $item['pages_img_link'] ?>" alt="Awesome Image">
+                            <div class="top-overlay">
+                                <div class="overlay-box">
+                                    <div class="box">
+                                        <div class="content">
+                                            <a href="<?php base_url() ?>pages/video_clip/index.php">
+                                                <i class="fa fa-link" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bottom-overlay">
-                            <div class="overlay-style-two">
-                                <div class="box">
-                                    <div class="content">
-                                        <div class="title pull-left">
-                                        </div>
-                                        <div class="see-project pull-right">
-                                            <a href="<?php echo $item['pages_img_link'] ?>" data-rel="prettyPhoto"
-                                                title="Hanover Project"><i class="fa fa-search-plus"></i></a>
+                            <div class="bottom-overlay">
+                                <div class="overlay-style-two">
+                                    <div class="box">
+                                        <div class="content">
+                                            <div class="title pull-left">
+                                            </div>
+                                            <div class="see-project pull-right">
+                                                <a href="<?php echo $item['pages_img_link'] ?>" data-rel="prettyPhoto" title="Hanover Project"><i class="fa fa-search-plus"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -327,7 +315,6 @@ $post_new = $db->fetchdata($sql_post_new);
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach ?>
             <!--End single gallery item-->
         </div>
@@ -366,35 +353,30 @@ $post_new = $db->fetchdata($sql_post_new);
                                 <div class="box">
                                     <div class="content">
                                         <a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
-                                                                        echo toSlug($post_new[0]['post_title']) ?>"><i
-                                                class="fa fa-link" aria-hidden="true"></i></a>
+                                                                                    echo toSlug($post_new[0]['post_title']) ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-holder">
                             <a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
-                                                            echo toSlug($post_new[0]['post_title']) ?>">
+                                                                        echo toSlug($post_new[0]['post_title']) ?>">
                                 <h3 class="blog-title"><?php echo $post_new[0]['post_title'] ?></h3>
                             </a>
                             <div class="meta-info clearfix">
                                 <ul class="post-info">
-                                    <li><i class="fa fa-user" aria-hidden="true"></i><a
-                                            href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
-                                                                                                                    echo toSlug($post_new[0]['post_title']) ?>">By
+                                    <li><i class="fa fa-user" aria-hidden="true"></i><a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
+                                                                                                                                    echo toSlug($post_new[0]['post_title']) ?>">By
                                             Admin</a></li>
-                                    <li><i class="fa fa-tags" aria-hidden="true"></i><a
-                                            href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
-                                                                                                                    echo toSlug($post_new[0]['post_title']) ?>">Tin
+                                    <li><i class="fa fa-tags" aria-hidden="true"></i><a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
+                                                                                                                                    echo toSlug($post_new[0]['post_title']) ?>">Tin
                                             tức</a></li>
                                 </ul>
                             </div>
                             <div class="text">
                                 <p><?php echo $post_new[0]['post_description'] ?></p>
-                                <a class="readmore"
-                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
-                                                                                echo toSlug($post_new[0]['post_title']) ?>">Xem thêm<i
-                                        class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                <a class="readmore" href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[0]['post_title'])] = $post_new[0]['post_id'];
+                                                                                                echo toSlug($post_new[0]['post_title']) ?>">Xem thêm<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -410,15 +392,12 @@ $post_new = $db->fetchdata($sql_post_new);
                                     <h5><?php echo $post_new[1]['post_datetime_update'] ?></h5>
                                 </div>
                                 <div class="img-holder">
-                                    <img src="<?php echo base_img('post') . $post_new[1]['post_image1'] ?>"
-                                        alt="Awesome Image">
+                                    <img src="<?php echo base_img('post') . $post_new[1]['post_image1'] ?>" alt="Awesome Image">
                                     <div class="overlay-style-two">
                                         <div class="box">
                                             <div class="content">
-                                                <a
-                                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
-                                                                                echo toSlug($post_new[1]['post_title']) ?>"><i
-                                                        class="fa fa-link" aria-hidden="true"></i></a>
+                                                <a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
+                                                                                            echo toSlug($post_new[1]['post_title']) ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -427,26 +406,23 @@ $post_new = $db->fetchdata($sql_post_new);
                             <div class="col-md-6">
                                 <div class="text-holder">
                                     <a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
-                                                                    echo toSlug($post_new[1]['post_title']) ?>">
+                                                                                echo toSlug($post_new[1]['post_title']) ?>">
                                         <h3 class="blog-title"><?php echo $post_new[1]['post_title'] ?></h3>
                                     </a>
                                     <div class="meta-info clearfix">
                                         <ul class="post-info">
-                                            <li><i class="fa fa-user" aria-hidden="true"></i><a
-                                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
-                                                                                                                            echo toSlug($post_new[1]['post_title']) ?>">By
+                                            <li><i class="fa fa-user" aria-hidden="true"></i><a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
+                                                                                                                                            echo toSlug($post_new[1]['post_title']) ?>">By
                                                     Admin</a></li>
-                                            <li><i class="fa fa-tags" aria-hidden="true"></i><a
-                                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
-                                                                                                                            echo toSlug($post_new[1]['post_title']) ?>">Tin
+                                            <li><i class="fa fa-tags" aria-hidden="true"></i><a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
+                                                                                                                                            echo toSlug($post_new[1]['post_title']) ?>">Tin
                                                     tức</a></li>
                                         </ul>
                                     </div>
                                     <div class="text">
                                         <p><?php echo $post_new[1]['post_description'] ?></p>
-                                        <a class="readmore"
-                                            href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
-                                                                                        echo toSlug($post_new[1]['post_title']) ?>">Xem
+                                        <a class="readmore" href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[1]['post_title'])] = $post_new[1]['post_id'];
+                                                                                                        echo toSlug($post_new[1]['post_title']) ?>">Xem
                                             thêm<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
@@ -462,15 +438,12 @@ $post_new = $db->fetchdata($sql_post_new);
                                     <h5><?php echo $post_new[2]['post_datetime_update'] ?></h5>
                                 </div>
                                 <div class="img-holder">
-                                    <img src="<?php echo base_img('post') . $post_new[2]['post_image1'] ?>"
-                                        alt="Awesome Image">
+                                    <img src="<?php echo base_img('post') . $post_new[2]['post_image1'] ?>" alt="Awesome Image">
                                     <div class="overlay-style-two">
                                         <div class="box">
                                             <div class="content">
-                                                <a
-                                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
-                                                                                echo toSlug($post_new[2]['post_title']) ?>"><i
-                                                        class="fa fa-link" aria-hidden="true"></i></a>
+                                                <a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
+                                                                                            echo toSlug($post_new[2]['post_title']) ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -479,26 +452,23 @@ $post_new = $db->fetchdata($sql_post_new);
                             <div class="col-md-6">
                                 <div class="text-holder">
                                     <a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
-                                                                    echo toSlug($post_new[2]['post_title']) ?>">
+                                                                                echo toSlug($post_new[2]['post_title']) ?>">
                                         <h3 class="blog-title"><?php echo $post_new[2]['post_title'] ?></h3>
                                     </a>
                                     <div class="meta-info clearfix">
                                         <ul class="post-info">
-                                            <li><i class="fa fa-user" aria-hidden="true"></i><a
-                                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
-                                                                                                                            echo toSlug($post_new[2]['post_title']) ?>">By
+                                            <li><i class="fa fa-user" aria-hidden="true"></i><a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
+                                                                                                                                            echo toSlug($post_new[2]['post_title']) ?>">By
                                                     Admin</a></li>
-                                            <li><i class="fa fa-tags" aria-hidden="true"></i><a
-                                                    href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
-                                                                                                                            echo toSlug($post_new[2]['post_title']) ?>">Tin
+                                            <li><i class="fa fa-tags" aria-hidden="true"></i><a href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
+                                                                                                                                            echo toSlug($post_new[2]['post_title']) ?>">Tin
                                                     tức</a></li>
                                         </ul>
                                     </div>
                                     <div class="text">
                                         <p><?php echo $post_new[2]['post_description'] ?></p>
-                                        <a class="readmore"
-                                            href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
-                                                                                        echo toSlug($post_new[2]['post_title']) ?>">Xem
+                                        <a class="readmore" href="./pages/post/post_details.php?name=<?php $_SESSION[toSlug($post_new[2]['post_title'])] = $post_new[2]['post_id'];
+                                                                                                        echo toSlug($post_new[2]['post_title']) ?>">Xem
                                             thêm<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>

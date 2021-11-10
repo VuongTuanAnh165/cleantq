@@ -46,7 +46,7 @@ $video_clip = $db->fetchdata($sql_video_clip);
         <div class="row">
             <div style="text-align: center;" class="col-md-12">
                 <?php foreach ($video_clip as $item) : ?>
-                    <div style="margin-top: 2%;">
+                    <div style="margin-top: 2%;" class="col-md-6">
                         <p><?php echo $item['video_clip_content'] ?></p>
                     </div>
                 <?php endforeach ?>
