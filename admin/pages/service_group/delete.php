@@ -15,7 +15,7 @@
     {
         $sql1="DELETE FROM service_group WHERE service_gr_id=$id";
         $id_delete = $db->delete($sql1);
-        if($id_delete > 0)
+        if($id_delete > 0 && unlink("../../../pages_img/".$open."/".$service_group['service_gr_img']))
         {
             $_SESSION['success'] = " Xóa thành công ";
             redirectAdmin($open);

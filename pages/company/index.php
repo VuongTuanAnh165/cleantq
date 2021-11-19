@@ -73,7 +73,7 @@ $company_check = $db->fetchcheck($sql_company);
                                     <span class="flaticon-cleaning-mop"></span>
                                 </div>
                                 <div class="text-holder">
-                                    <h3>Hostline</h3>
+                                    <h3>Hotline</h3>
                                     <p><a href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_phone'] ?></a></p>
                                 </div>
                             </div>

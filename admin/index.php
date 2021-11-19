@@ -7,7 +7,7 @@
 ?>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper" style="background-image: url(https://muare60s.vn/hinh-nen-powerpoint-mau-xanh-da-troi/imager_1_2141_700.jpg);">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -27,13 +27,9 @@
 
   <!-- Main content -->
   <div style="width:960px; margin: auto; overflow: hidden">
-        <h3 style="color: #002247; text-align: center">WEBSITE MULTIPLE MANAGEMENT</h3>
+        <h3 style="color: #002247; text-align: center">Quản trị hệ thống website <a href="http://vietnamsach.vn" target="_blank">Việt Nam sạch</a></h3>
         <p style="text-align: center; position: relative">
             <img src="./dist/img/kisspng-photography-lettering-art-welcome-png-available-in-different-size-5ab1826c41d727.6661119915215827002697.png" alt="welcome image">
-        </p>
-        <p style="text-align:center; margin: 0 auto; font-family: Arial; font-weight: bold; width: 700px; line-height: 25px">
-            Hệ thống quản lý đa website, hỗ trợ doanh nghiệp quản lý website một cách nhanh chóng, tiện lợi. 
-            Mang đến những trải nghiệm tốt nhất và thú vị cho người dùng.
         </p>
     </div>
   <!-- /.content -->

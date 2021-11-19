@@ -41,26 +41,26 @@ if (isset($_POST["login"])) {
   <link href="<?php echo base_img('company').$company['company_logo'] ?>" rel="shortcut icon">
 </head>
 
-<body>
+<body style="background-image: url(https://muare60s.vn/hinh-nen-powerpoint-mau-xanh-da-troi/imager_1_2141_700.jpg);">
   <br /><br />
   <div class="container">
-    <h3 style="color: #002247; text-align: center">WEBSITE MULTIPLE MANAGEMENT</h3>
     <p style="text-align: center; position: relative">
       <img src="./dist/img/kisspng-photography-lettering-art-welcome-png-available-in-different-size-5ab1826c41d727.6661119915215827002697.png" alt="welcome image">
     </p>
     <br />
-    <h3 style="text-align: center;">Đăng nhập</h3>
-    <br />
-    <form method="post" style="margin: 0% 25%;">
-      <label>Nhập tài khoản</label>
-      <input type="text" name="username" class="form-control" />
-      <br />
-      <label>Nhập mật khẩu</label>
-      <input type="password" name="password" class="form-control" />
-      <br />
-      <input type="submit" name="login" value="Login" class="btn btn-info" />
-      <br />
-    </form>
+    <div>
+        <h1 style="text-align: center; color:#FF4500; font-weight:bold">ĐĂNG NHẬP</h1>
+        <form method="post" style="margin: 3% 25%;">
+          <label>Nhập tài khoản</label>
+          <input type="text" name="username" class="form-control" placeholder="Tài khoản" style="box-shadow: 5px 5px 5px black;"/>
+          <br />
+          <label>Nhập mật khẩu</label>
+          <input type="password" name="password" class="form-control" placeholder="Mật khẩu"  style="box-shadow: 5px 5px 5px black;" />
+          <br />
+          <input type="submit" name="login" value="Đăng nhập" class="btn btn-info"  style="box-shadow: 5px 5px 5px black;"/>
+          <br />
+        </form>
+    </div>
   </div>
 </body>
 

@@ -1,5 +1,7 @@
 <?php
 require_once(__DIR__ . '/../autoload/autoload.php');
+$sql = "SELECT *  FROM company";
+$company = $db->fetchcheck($sql);
 ?>
 <?php
 $username = $_SESSION['username'];
@@ -38,28 +40,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="<?php echo base_url_be() ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url_be() ?>dist/css/adminlte.min.css">
+  <link href="<?php echo base_img('company').$company['company_logo'] ?>" rel="apple-touch-icon-precomposed">
+  <link href="<?php echo base_img('company').$company['company_logo'] ?>" rel="apple-touch-icon-precomposed">
+  <link href="<?php echo base_img('company').$company['company_logo'] ?>" rel="shortcut icon">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url(https://muare60s.vn/hinh-nen-powerpoint-mau-xanh-da-troi/imager_1_2141_700.jpg);">
 
   <br /><br />
   <div class="container">
-    <h3 style="color: #002247; text-align: center">WEBSITE MULTIPLE MANAGEMENT</h3>
     <p style="text-align: center; position: relative">
       <img src="./dist/img/kisspng-photography-lettering-art-welcome-png-available-in-different-size-5ab1826c41d727.6661119915215827002697.png" alt="welcome image">
     </p>
     <br />
-    <h3 style="text-align: center;">Đổi mật khẩu</h3>
+    <h1 style="text-align: center;">ĐỔI MẬT KHẨU</h1>
     <p style="text-align: center;">Bạn chỉ còn một bước nữa để có được mật khẩu mới, hãy cập nhật mật khẩu của bạn ngay bây giờ.</p>
     <br />
     <form method="post" style="margin: 0% 25%;">
       <label>Nhập mật khẩu mới</label>
-      <input type="password" class="form-control" placeholder="Mật khẩu mới" name="password_new">
+      <input type="password" class="form-control" placeholder="Mật khẩu mới" name="password_new" style="box-shadow: 5px 5px 5px black;">
       <br />
       <label>Nhập lại mật khẩu</label>
-      <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" name="password_confirm">
+      <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" name="password_confirm" style="box-shadow: 5px 5px 5px black;">
       <br />
-      <input type="submit" name="login" value="Cập nhật" class="btn btn-info" />
+      <input type="submit" name="login" value="Cập nhật" class="btn btn-info" style="box-shadow: 5px 5px 5px black;" />
       <br />
     </form>
   </div>

@@ -15,7 +15,7 @@
     {
         $sql1="DELETE FROM post WHERE post_id=$id";
         $id_delete = $db->delete($sql1);
-        if($id_delete > 0)
+        if($id_delete > 0 && unlink("../../../pages_img/".$open."/".$post['post_image1']))
         {
             $_SESSION['success'] = " Xóa thành công ";
             redirectAdmin($open);

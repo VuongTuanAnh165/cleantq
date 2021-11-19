@@ -173,6 +173,23 @@ $company = $db->fetchcheck($sql);
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon bi bi-calendar2-week"></i>
+                                <p>
+                                    Hoạt động
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo base_url_be(); ?>pages/work/index.php" class="nav-link">
+                                        <i class="bi bi-play nav-icon"></i>
+                                        <p>Danh sách hoạt động</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-header">Blog</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
