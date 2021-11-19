@@ -26,6 +26,9 @@
                         <p><a style="color: white;"
                                 href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a>
                         </p>
+                        <p><a style="color: white;"
+                                href="tel:<?php echo $company['company_phone'] ?>"><?php echo $company['company_phone'] ?></a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -80,6 +83,16 @@
                                 <div class="text-holder">
                                     <p><a style="color:#eb7616;"
                                             href="tel:<?php echo $company['company_mobile'] ?>"><?php echo $company['company_mobile'] ?></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-holder">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="text-holder">
+                                    <p><a style="color:#eb7616;"
+                                            href="tel:<?php echo $company['company_phone'] ?>"><?php echo $company['company_phone'] ?></a>
                                     </p>
                                 </div>
                             </li>

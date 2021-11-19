@@ -4,64 +4,24 @@
 require_once(__DIR__ . '/../../autoload/autoload.php');
 if (isset($_SESSION[getInput('name')])) {
     $id = intval($_SESSION[getInput('name')]);
-    //tin tức theo post_type_id
-    $sql_post = "SELECT * FROM post WHERE post_type_id=$id";
-    $post = $db->fetchdata($sql_post);
-    //nhóm tin tức theo post_type_id
-    $sql_post_type_id = "SELECT * FROM post_type WHERE post_type_id=$id";
-    $post_type_id = $db->fetchcheck($sql_post_type_id);
 }
-
-//nhóm tin tức
-$sql_post_type = "SELECT * FROM post_type WHERE post_type_active=1";
-$post_type = $db->fetchdata($sql_post_type);
+//hoạt động
+$sql_work = "SELECT * FROM work WHERE work_active=1";
+$work = $db->fetchdata($sql_work);
 
 //bài viết mới
-$sql_post_new = "SELECT * FROM post WHERE post_active=1 ORDER BY post_datetime_update LIMIT 10";
+$sql_post_new = "SELECT * FROM post WHERE post_active=1 ORDER BY post_datetime_update LIMIT 5";
 $post_new = $db->fetchdata($sql_post_new);
 ?>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['post_title'] = $_POST['post_title'];
-}
-?>
-
-<?php
-if(isset($_SESSION['post_title']))
-{
-    $post_title=$_SESSION['post_title'];
-    unset($_SESSION['post_title']);
-    if ($post_title != '') {
-        $sql_post = "SELECT * FROM post WHERE post_title LIKE '%$post_title%' AND post_active=1";
-        $post = $db->fetchdata($sql_post);
-    } else {
-        if (isset($_SESSION[getInput('name')])) {
-            $id = intval($_SESSION[getInput('name')]);
-            unset($_SESSION[getInput('name')]);
-            $sql_post = "SELECT * FROM post WHERE post_type_id=$id";
-            $post = $db->fetchdata($sql_post);
-            //nhóm tin tức theo post_type_id
-            $sql_post_type_id = "SELECT * FROM post_type WHERE post_type_id=$id";
-            $post_type_id = $db->fetchcheck($sql_post_type_id);
-        }
-    }
-}
-?>
-
-<section class="breadcrumb-area" style="background-image: url(<?php echo base_img('post') . $post[0]['post_image1'] ?>);">
+<!-- main content -->
+<!--Start breadcrumb area-->
+<section class="breadcrumb-area" style="background-image: url(<?php echo base_img('work') . $work[0]['work_img'] ?>);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumbs">
-                    <h1>Tin tức<br>
-                        <?php
-                        if (isset($post_title)) {
-                            echo " Liên quan đến '" . $post_title . "'";
-                        } else {
-                            echo $post_type_id['post_type_title'];
-                        }
-                        ?></h1>
+                    <h1>Hoạt động</h1>
                 </div>
             </div>
         </div>
@@ -73,9 +33,7 @@ if(isset($_SESSION['post_title']))
                     <ul>
                         <li><a href="<?php echo base_url() ?>index.php">Home</a></li>
                         <li><span class="dotted"></span></li>
-                        <li><a href="<?php echo base_url() ?>pages/post_type/index.php">Nhóm tin tức</a></li>
-                        <li><span class="dotted"></span></li>
-                        <li class="active">Tin tức</li>
+                        <li class="active">Hoạt động</li>
                     </ul>
                 </div>
             </div>
@@ -91,17 +49,17 @@ if(isset($_SESSION['post_title']))
             <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                 <div class="blog-post">
                     <!--Start single blog post-->
-                    <?php foreach ($post as $item) : ?>
+                    <?php foreach ($work as $item) : ?>
                         <div class="single-blog-post blog-list">
                             <div class="row">
                                 <div class="col-md-4 col-sm-5 col-xs-12">
                                     <div class="img-holder">
-                                        <img src="<?php echo base_img('post') . $item['post_image1'] ?>" alt="Awesome Image">
+                                        <img src="<?php echo base_img('work') . $item['work_img'] ?>" alt="Awesome Image">
                                         <div class="overlay-style-two">
                                             <div class="box">
                                                 <div class="content">
-                                                    <a href="post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
-                                                                                    echo toSlug($item['post_title']) ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                                    <a href="work_details.php?name=<?php $_SESSION[toSlug($item['work_name'])] = $item['work_id'];
+                                                                                        echo toSlug($item['work_name']) ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,9 +67,9 @@ if(isset($_SESSION['post_title']))
                                 </div>
                                 <div class="col-md-8 col-sm-7 col-xs-12">
                                     <div class="text-holder">
-                                        <a href="post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
-                                                                        echo toSlug($item['post_title']) ?>">
-                                            <h3 class="blog-title"><?php echo $item['post_title'] ?></h3>
+                                        <a href="work_details.php?name=<?php $_SESSION[toSlug($item['work_name'])] = $item['work_id'];
+                                                                            echo toSlug($item['work_name']) ?>">
+                                            <h3 class="blog-title"><?php echo $item['work_name'] ?></h3>
                                         </a>
                                         <div class="meta-info clearfix">
                                             <ul class="post-info">
@@ -120,9 +78,9 @@ if(isset($_SESSION['post_title']))
                                             </ul>
                                         </div>
                                         <div class="text">
-                                            <p><?php echo $item['post_description'] ?></p>
-                                            <a class="readmore" href="post_details.php?name=<?php $_SESSION[toSlug($item['post_title'])] = $item['post_id'];
-                                                                                            echo toSlug($item['post_title']) ?>">Xem thêm<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                            <p><?php echo $item['work_description'] ?></p>
+                                            <a class="readmore" href="work_details.php?name=<?php $_SESSION[toSlug($item['work_name'])] = $item['work_id'];
+                                                                                                echo toSlug($item['work_name']) ?>">Xem thêm<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -134,19 +92,6 @@ if(isset($_SESSION['post_title']))
             <!--Start sidebar Wrapper-->
             <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">
                 <div class="sidebar-wrapper">
-                    <!--Start single sidebar-->
-                    <div class="single-sidebar">
-                        <div class="sec-title">
-                            <h3>Nhóm tin tức</h3>
-                            <span class="border"></span>
-                        </div>
-                        <ul class="categories clearfix">
-                            <?php foreach ($post_type as $item) : ?>
-                                <li><a href="<?php echo base_url() ?>pages/post/index.php?name=<?php $_SESSION[toSlug($item['post_type_title'])] = $item['post_type_id'];
-                                                                                                echo toSlug($item['post_type_title']) ?>"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><?php echo $item['post_type_title'] ?></a></li>
-                            <?php endforeach ?>
-                        </ul>
-                    </div>
                     <!--End single sidebar-->
                     <!--Start single sidebar-->
                     <div class="single-sidebar">
